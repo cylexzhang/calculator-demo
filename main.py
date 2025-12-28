@@ -31,7 +31,7 @@ def main() -> int:
         result = OPS[args.op](args.a, args.b)
         # 输出更友好一点
         op_name = OP_NAMES[args.op]
-        print(f"你的输入是 {args.a} {op_name} {args.b},结果是：{result}")
+        print(f"你的输入是 {args.a:.3f} {op_name} {args.b:.3f},结果是：{result:.3f}")
         return 0
     except CalculatorError as e:
         print(f"Error: {e}", file=sys.stderr)
