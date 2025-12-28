@@ -23,7 +23,7 @@ def main() -> int:
     try:
         result = OPS[args.op](args.a, args.b)
         # 输出更友好一点
-        print(result)
+        print(f"你的输入是 {args.a} {args.op} {args.b},结果是：{result}")
         return 0
     except CalculatorError as e:
         print(f"Error: {e}", file=sys.stderr)
