@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from calculator import add, sub, mul, div, CalculatorError
 
 
@@ -21,13 +22,15 @@ def main() -> int:
 
     try:
         result = OPS[args.op](args.a, args.b)
+        # 输出更友好一点
+        print(result)
+        return 0
     except CalculatorError as e:
-        print(f"Error: {e}")
+        print(f"Error: {e}", file=sys.stderr)
         return 1
-
-    # 输出更友好一点
-    print(result)
-    return 0
+    except Exception as e:
+        print(f"Unexpected error: {e}", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":
